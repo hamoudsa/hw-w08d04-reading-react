@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import ShowBook from './components/ShowBook';
-import ShowForm from './components/ShowForm';
+import Tile from './components/Tile';
+import BookForm from './components/BookForm';
+import BookForm from './components/BookForm';
 
 class App extends Component {
   constructor() {
@@ -65,7 +66,7 @@ class App extends Component {
   renderBook(show) {
     return show.map((book, index) => {
       return (
-        <ShowBook key={index}
+        <Tile key={index}
           book={book}
           setCurrentShow={this.setCurrentShow.bind(this)}
           deleteBook={this.deleteBook.bind(this)}
@@ -74,11 +75,11 @@ class App extends Component {
     })
   }
 
-  setCurrentShow(showBook) {
-    console.log(showBook)
+  setCurrentShow(Tile) {
+    console.log(Tile)
 
     this.setState({
-      show: showBook
+      show: Tile
     })
   }
 
@@ -94,7 +95,7 @@ class App extends Component {
 
           <button onClick={this.toggleModal.bind(this)}>Add New Book</button>
 
-            {this.state.modal ? <ShowForm createNewBook={this.createNewBook.bind(this)} /> : ''}
+            {this.state.modal ? <BookForm createNewBook={this.createNewBook.bind(this)} /> : ''}
 
             {this.renderBook(this.state.books)}
             <img className="img" src={this.state.show.image} alt="" />
